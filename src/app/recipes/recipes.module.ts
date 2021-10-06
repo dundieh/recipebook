@@ -11,7 +11,6 @@ import { RecipeItemComponent } from "./recipe-list/recipe-item/recipe-item.compo
 import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesResolverService } from "./recipes.resolver.service";
-import { DropdownDirective } from "../shared/dropdown.directive";
 import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
@@ -26,7 +25,7 @@ import { SharedModule } from "../shared/shared.module";
     imports: [
         ReactiveFormsModule,
         RouterModule.forChild([
-            { path: 'recipes', component: RecipesComponent, canActivate: [AuthGuard],
+            { path: '', component: RecipesComponent, canActivate: [AuthGuard],
                 children: [
                     { path: '', component: RecipeStartComponent },
                     { path: 'new', component: RecipeEditComponent },
