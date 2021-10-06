@@ -12,6 +12,7 @@ import { RecipeListComponent } from "./recipe-list/recipe-list.component";
 import { RecipeStartComponent } from "./recipe-start/recipe-start.component";
 import { RecipesResolverService } from "./recipes.resolver.service";
 import { DropdownDirective } from "../shared/dropdown.directive";
+import { SharedModule } from "../shared/shared.module";
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { DropdownDirective } from "../shared/dropdown.directive";
         RecipeEditComponent,
     ],
     imports: [
+        ReactiveFormsModule,
         RouterModule.forChild([
             { path: 'recipes', component: RecipesComponent, canActivate: [AuthGuard],
                 children: [
@@ -33,8 +35,7 @@ import { DropdownDirective } from "../shared/dropdown.directive";
                 ]
             }
         ]),
-        CommonModule,
-        ReactiveFormsModule,
+        SharedModule
     ]
 })
 export class RecipesModule {}

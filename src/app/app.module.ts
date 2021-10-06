@@ -12,25 +12,15 @@ import { DatabaseService } from './shared/database.service';
 import { RecipesResolverService } from './recipes/recipes.resolver.service';
 import { AuthComponent } from './auth/auth.component';
 import { AuthService } from './auth/auth.service';
-import { LoadingComponent } from './shared/loading/loading.component';
 import { AuthInterceptorService } from './auth/auth.interceptor.service';
 import { AuthGuard } from './auth/auth.guard';
-import { AlertComponent } from './shared/alert/alert.component';
-import { PlaceholderDirective } from './shared/placeholder/placeholder.directive';
 import { RecipesModule } from './recipes/recipes.module';
 import { ShoppingListModule } from './shopping-list/shopping-list.module';
 import { RouterModule } from '@angular/router';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HeaderComponent,
-    AuthComponent,
-    LoadingComponent,
-    AlertComponent,
-    DropdownDirective,
-    PlaceholderDirective,
-  ],
+  declarations: [AppComponent, HeaderComponent, AuthComponent],
   imports: [
     RouterModule.forRoot([
       { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -41,7 +31,8 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     ReactiveFormsModule,
     RecipesModule,
-    ShoppingListModule
+    ShoppingListModule,
+    SharedModule
   ],
   providers: [
     RecipeService,
