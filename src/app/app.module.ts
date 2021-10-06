@@ -7,13 +7,16 @@ import { HeaderComponent } from './header/header.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
-import { AuthModule } from './auth/auth.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
     RouterModule.forRoot([
       { path: '', redirectTo: '/signup', pathMatch: 'full' },
+      {
+        path: 'signup',
+        loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
+      },
       {
         path: 'recipes',
         loadChildren: () => import('./recipes/recipes.module').then(m => m.RecipesModule)
@@ -26,7 +29,6 @@ import { AuthModule } from './auth/auth.module';
     BrowserModule,
     HttpClientModule,
     CoreModule,
-    AuthModule,
     SharedModule,
   ],
   bootstrap: [AppComponent]
