@@ -3,11 +3,10 @@ import { exhaustMap, map, take, tap } from "rxjs/operators";
 import { Injectable } from "@angular/core";
 import { Recipe } from "../recipes/recipe.model";
 import { RecipeService } from "../recipes/recipe.service";
-import { AuthService } from "../auth/auth.service";
 
 @Injectable()
 export class DatabaseService {
-    constructor(private recipeService: RecipeService, private http: HttpClient, private authService: AuthService) {}
+    constructor(private recipeService: RecipeService, private http: HttpClient) {}
 
     storeRecipes() {
         const recipes = this.recipeService.getRecipes();

@@ -4,14 +4,14 @@ import { Subject } from "rxjs";
 import { Ingredient } from "../shared/ingredient.model";
 import { Recipe } from "./recipe.model";
 import * as SLA from '../shopping-list/store-rx/shopping-list.actions';
-import * as fromSLA from "../shopping-list/store-rx/shopping-list.reducer";
+import * as fromApp from '../store-rx/app.reducer';
 
 @Injectable()
 export class RecipeService {
     recipesChanged = new Subject<Recipe[]>();
     private recipes: Recipe[] = [];
 
-    constructor(private store: Store<fromSLA.AppState>) {}
+    constructor(private store: Store<fromApp.AppState>) {}
 
     setRecipes(recipes: Recipe[]) {
         this.recipes = recipes;
