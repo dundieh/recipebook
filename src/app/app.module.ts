@@ -8,8 +8,11 @@ import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core.module';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { AuthEffects } from './auth/store-rx/auth.effects';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import * as fromApp from './store-rx/app.reducer';
+import { environment } from '../environments/environment';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/signup', pathMatch: 'full' },
@@ -37,6 +40,8 @@ const appRoutes: Routes = [
     SharedModule,
     StoreModule.forRoot(fromApp.appReducers),
     EffectsModule.forRoot([AuthEffects]),
+    StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+    StoreRouterConnectingModule.forRoot(),
   ],
   bootstrap: [AppComponent]
 })
