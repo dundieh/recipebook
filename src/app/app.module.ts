@@ -34,8 +34,8 @@ const appRoutes: Routes = [
 @NgModule({
   declarations: [AppComponent, HeaderComponent],
   imports: [
-    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules }),
-    BrowserModule,
+    RouterModule.forRoot(appRoutes, { preloadingStrategy: PreloadAllModules, initialNavigation: 'enabled' }),
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     HttpClientModule,
     CoreModule,
     SharedModule,
