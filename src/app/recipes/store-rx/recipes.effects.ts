@@ -15,7 +15,7 @@ export class RecipesEffects {
         ofType(RecipesActions.FETCH_RECIPES),
         switchMap(() => {
             return this.http
-            .get<Recipe[]>('https://recipe-book-1021-default-rtdb.firebaseio.com/recipes.json')
+            .get<Recipe[]>('https://recipe-book-1021-default-rtdb.io.com/recipes.json')
         }),
         map((recipesArray) => {
             return recipesArray.map((recipe) => {
