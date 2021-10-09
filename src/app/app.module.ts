@@ -13,9 +13,10 @@ import { AuthEffects } from './auth/store-rx/auth.effects';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import * as fromApp from './store-rx/app.reducer';
 import { environment } from '../environments/environment';
+import { RecipesEffects } from './recipes/store-rx/recipes.effects';
 
 const appRoutes: Routes = [
-  { path: '', redirectTo: '/signup', pathMatch: 'full' },
+  { path: '', redirectTo: '/recipes', pathMatch: 'full' },
   {
     path: 'signup',
     loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
@@ -39,7 +40,7 @@ const appRoutes: Routes = [
     CoreModule,
     SharedModule,
     StoreModule.forRoot(fromApp.appReducers),
-    EffectsModule.forRoot([AuthEffects]),
+    EffectsModule.forRoot([AuthEffects, RecipesEffects]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
     StoreRouterConnectingModule.forRoot(),
   ],

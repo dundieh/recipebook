@@ -23,7 +23,13 @@ export class LoginStart {
 export class SignupLogin implements Action {
     readonly type = SIGNUP_LOGIN;
 
-    constructor(public payload: {email: string, userID: string, token: string, expirationDate: Date}) {}
+    constructor(public payload: {
+        email: string,
+        userID: string,
+        token: string,
+        expirationDate: Date,
+        redirect: boolean,
+    }) {}
 }
 
 export class SignupLoginFail implements Action {
