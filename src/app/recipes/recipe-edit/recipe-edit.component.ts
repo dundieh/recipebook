@@ -73,7 +73,7 @@ export class RecipeEditComponent implements OnInit, OnDestroy {
     if(this.editMode) {
       this.storeSub = this.store.select('recipes')
       .pipe(
-        map(recipesState => recipesState.recipes.find((recipe, index) => index = this.id)),
+        map(recipesState => recipesState.recipes.find((recipe, index) => index === this.id)),
       ).subscribe((recipe) => {
         recipeName = recipe.name;
         recipeImagePath = recipe.imagePath;
